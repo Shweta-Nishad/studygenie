@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <button onclick="loadQuiz()">Load Quiz</button>
+    <pre id="quiz"></pre>
+
+<script>
+function loadQuiz(){
+    fetch("/generate_quiz")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("quiz").innerText =
+            JSON.stringify(data, null, 2);
+    });
+}
+</script>
+</body>
+</html>

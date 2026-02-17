@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+     {% load static %}
+    <title>Create Study Plan - StudyGenie</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1>Create Your Personalized Study Plan</h1>
+        <p>AI-powered roadmap tailored to your goals and syllabus.</p>
+    </div>
+
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Course Details -->
+            <div class="card-section">
+                <h3>Course Details</h3>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Course Name</label>
+                        <input type="text" name="course_name">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Current Grade</label>
+                        <select name="current_grade">
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>F</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Target Grade</label>
+                        <select name="target_grade">
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="card-section">
+                <h3>Timeline</h3>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Duration</label>
+                        <select name="duration">
+                            <option>4 Weeks</option>
+                            <option>8 Weeks</option>
+                            <option>12 Weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Study Hours per Day</label>
+                        <input type="number" name="daily_hours">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Syllabus -->
+            <div class="card-section">
+                <h3>Paste or Upload Your Syllabus</h3>
+
+                <div class="input-group full-width">
+                    <label>Paste Topics</label>
+                    <textarea name="syllabus" placeholder="Example:
+- Chapter 1: Limits
+- Chapter 2: Derivatives
+- Midterm: March 15"></textarea>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>Upload PDF</label>
+                    <input type="file" name="syllabus_pdf">
+                </div>
+            </div>
+
+            <button type="submit" class="primary-btn">
+                ✨ Generate My Study Plan
+            </button>
+
+            <div class="trust-text">
+                ⚡ Plan generated in seconds · 🔒 Your data stays private
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+
+</body>
+</html>

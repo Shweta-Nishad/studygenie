@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>StudyGenie</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<nav class="navbar">
+    
+    <a href="{% url 'accounts:dashboard' %}" class="logo">
+        <span class="logo-icon">📘</span>
+        <span class="logo-text">StudyGenie</span>
+    </a>
+
+
+    <div class="nav-links">
+
+         {% if user.is_authenticated %}
+
+        <div class="profile-container">
+            <div class="profile-btn" onclick="toggleDropdown()">
+                <div class="avatar">
+                    {{ user.username|first|upper }}
+                </div>
+                <span>{{ user.username }}</span>
+            </div>
+
+            <div id="profileDropdown" class="dropdown-menu">
+                <a href="{% url 'accounts:profile' %}">My Profile</a>
+                <a href="{% url 'accounts:account_settings' %}">Account Settings</a>
+                <a href="{% url 'accounts:logout' %}">Logout</a>
+            </div>
+        </div>
+        {% else %}
+            <a href="{% url 'accounts:login' %}">Login</a>
+            <a href="{% url 'accounts:register' %}">Get Started</a>
+        {% endif %}
+
+
+    </div>
+</nav>
+
+
+
+{% block content %}
+{% endblock %}
+
+<script src="{% static 'script.js' %}"></script>
+
+</body>
+</html>

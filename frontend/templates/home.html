@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard">
+
+    <h1>AI Powered Study Planner</h1>
+    <p>Generate smart study plans instantly.</p>
+
+    <a href="{% url 'accounts:register' %}" class="btn-primary">
+        Start Learning Now →
+    </a>
+
+    <div class="dashboard-cards landing-features">
+
+        <div class="feature-glass">
+            <h3>📚 My Study Plans</h3>
+            <p>Create intelligent study schedules.</p>
+        </div>
+
+        <div class="feature-glass">
+            <h3>🧠 AI Quizzes</h3>
+            <p>Generate practice quizzes automatically.</p>
+        </div>
+
+        <div class="feature-glass">
+            <h3>📊 Progress Tracking</h3>
+            <p>Track your improvement over time.</p>
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+        <h1>Join StudyGenie 🚀</h1>
+        <p>
+            Start building intelligent study plans, generate AI quizzes,
+            and track your academic progress effortlessly.
+        </p>
+
+        <ul class="auth-features">
+            <li>📚 Smart Study Scheduling</li>
+            <li>🧠 AI-Generated Practice Quizzes</li>
+            <li>📊 Real-Time Progress Tracking</li>
+        </ul>
+        <div class="bg-brand">STUDYGENIE</div>
+
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="bg-brand">STUDYGENIE</div>
+
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="password" name="password" placeholder="Password" required>
+
+                <button type="submit">Get Started</button>
+            </form>
+
+            <p class="switch-link">
+                Already have an account?
+                <a href="{% url 'accounts:login' %}">Login</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="auth-footer-strip">
+    © 2026 StudyGenie • Built for Smarter Learning
+</div>
+
+{% endblock %}
