@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Your Study Plan - StudyGenie</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="result-wrapper">
+
+    <div class="result-header">
+        <h1>📚 Your Personalized Study Plan</h1>
+        <h3>{{ course_name }} - {{ subject }}</h3>
+    </div>
+
+    <a href="{% url 'accounts:generate_quiz' plan.id %}">
+    Take Quiz
+    </a>
+
+
+    {% for day in study_plan %}
+        <div class="day-card">
+            <div class="day-title">
+                Day {{ day.day }} ({{ daily_hours }} hrs)
+            </div>
+
+            <ul>
+                {% for topic in day.topics %}
+                    <li>{{ topic }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

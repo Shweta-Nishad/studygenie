@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,7 @@
     <div class="form-container">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-
+            
             <!-- Course Details -->
             <div class="card-section">
                 <h3>Course Details</h3>
@@ -67,16 +69,16 @@
                 <div class="row">
                     <div class="input-group">
                         <label>Duration</label>
-                        <select name="duration">
-                            <option>4 Weeks</option>
-                            <option>8 Weeks</option>
-                            <option>12 Weeks</option>
+                        <select name="duration_weeks">
+                            <option value="4">4 Weeks</option>
+                            <option value="8">8 Weeks</option>
+                            <option value="12">12 Weeks</option>
                         </select>
                     </div>
 
                     <div class="input-group">
                         <label>Study Hours per Day</label>
-                        <input type="number" name="daily_hours">
+                        <input type="number" name="study_hours_per_day">
                     </div>
                 </div>
             </div>
@@ -111,6 +113,7 @@
     </div>
 
 </div>
+
 
 
 </body>

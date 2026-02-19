@@ -5,11 +5,13 @@
 
     <!-- LEFT GLASS SIDEBAR -->
     <div class="sidebar">
-
-        <div class="sidebar-item">
-            <h3>📚 My Study Plans</h3>
-            <p>Create intelligent study schedules.</p>
-        </div>
+        
+        <a href="{% url 'accounts:dashboard' %}#recent-plans">
+            <div class="sidebar-item">
+                    <h3>📚 My Study Plans</h3>
+                <p>Create intelligent study schedules.</p>
+            </div>
+        </a>
 
         <div class="sidebar-item">
             <h3>🧠 AI Quizzes</h3>
@@ -51,31 +53,35 @@
         <a href="{% url 'accounts:create_plan' %}" class="btn-primary">
             + Create New Study Plan
         </a>
+         
+        <div class="dashboard-wrapper">
+            <h2 id="recent-plans" style="margin-top:50px;">Recent Study Plans</h2>
+            {% if plans %}
+                <div class="plans-grid">
+                    {% for plan in plans %}
+                        <div class="plan-card">
+                            <h3>{{ plan.title }}</h3>
+                            <p><strong>Subject:</strong> {{ plan.subject }}</p>
+                            <p><strong>Start:</strong> {{ plan.start_date }}</p>
+                            <p><strong>End:</strong> {{ plan.end_date }}</p>
 
-        <h2 style="margin-top:50px;">Recent Study Plans</h2>
+                            <div class="plan-actions">
+                                <a href="{% url 'accounts:view_plan' plan.id %}" class="btn-small">
+                                    View Plan
+                                </a>
 
-        {% if plans %}
-    <div class="dashboard-cards">
-        {% for plan in plans %}
-            <div class="dash-card">
-                <h3>{{ plan.title }}</h3>
-                <p>Subject: {{ plan.subject }}</p>
-                <p>Duration: {{ plan.start_date }} → {{ plan.end_date }}</p>
+                                <a href="{% url 'accounts:generate_quiz' plan.id %}" class="btn-small quiz-btn">
+                                    🧠 Start Quiz
+                                </a>
+                            </div>
 
-                {% if plan.syllabus_pdf %}
-                    <a href="{{ plan.syllabus_pdf.url }}" target="_blank">
-                        View PDF
-                    </a>
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
-    {% else %}
-        <div class="dash-card">
-            <h3>No Study Plans Yet</h3>
-            <p>Start by creating your first study plan 🚀</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                    <p>No study plans created yet.</p>
+            {% endif %}
         </div>
-    {% endif %}
 
     </div>
 

@@ -1,22 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quiz</title>
-</head>
-<body>
-    <h1>Quiz</h1>
-    <button onclick="loadQuiz()">Load Quiz</button>
-    <pre id="quiz"></pre>
+{% extends "base.html" %}
+{% block content %}
 
-<script>
-function loadQuiz(){
-    fetch("/generate_quiz")
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("quiz").innerText =
-            JSON.stringify(data, null, 2);
-    });
-}
-</script>
-</body>
-</html>
+<h2>Quiz: {{ quiz.topic }}</h2>
+
+<form method="POST" action="{% url 'accounts:submit_quiz' quiz.id %}">
+    {% csrf_token %}
+
+    {% for question in questions %}
+        <div class="question-box" style="margin-bottom:20px;">
+            <p><strong>{{ forloop.counter }}. {{ question.question_text }}</strong></p>
+
+            <label>
+                <input type="radio" name="question_{{ question.id }}" value="A">
+                {{ question.option_a }}
+            </label><br>
+
+            <label>
+                <input type="radio" name="question_{{ question.id }}" value="B">
+                {{ question.option_b }}
+            </label><br>
+
+            <label>
+                <input type="radio" name="question_{{ question.id }}" value="C">
+                {{ question.option_c }}
+            </label><br>
+
+            <label>
+                <input type="radio" name="question_{{ question.id }}" value="D">
+                {{ question.option_d }}
+            </label><br>
+        </div>
+    {% empty %}
+        <p>No questions available.</p>
+    {% endfor %}
+
+    <button type="submit" class="btn-primary">Submit Quiz</button>
+</form>
+
+{% endblock %}

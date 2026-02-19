@@ -5,7 +5,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // ====================================
-    // 1️⃣ Smooth Scroll for Anchor Links
+    // Smooth Scroll for Anchor Links
     // ====================================
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ====================================
-    // 2️⃣ Fade-in Animation on Scroll
+    // Fade-in Animation on Scroll
     // ====================================
     const fadeElements = document.querySelectorAll(".fade-in");
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ====================================
-    // 3️⃣ Navbar Background Change on Scroll
+    // Navbar Background Change on Scroll
     // ====================================
     const navbar = document.querySelector(".navbar");
 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ====================================
-    // 4️⃣ Profile Dropdown (FIXED CLEAN VERSION)
+    // Profile Dropdown
     // ====================================
 
     const profileContainer = document.querySelector(".profile-container");

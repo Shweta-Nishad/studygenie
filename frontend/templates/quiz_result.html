@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="text-align:center; margin-top:50px;">
+    <h2>Quiz Result</h2>
+
+    <h3>{{ quiz.topic }}</h3>
+
+    <p style="font-size:20px; margin-top:20px;">
+        Your Score: <strong>{{ score }}</strong> / {{ total }}
+    </p>
+
+    {% if score == total %}
+        <p style="color:green; font-weight:bold;">Excellent! 🎉</p>
+    {% elif score >= total|divisibleby:2 %}
+        <p style="color:orange; font-weight:bold;">Good job 👍</p>
+    {% else %}
+        <p style="color:red; font-weight:bold;">Keep practicing 💪</p>
+    {% endif %}
+
+    <br><br>
+
+    <a href="{% url 'accounts:dashboard' %}" class="btn-primary">
+        Back to Dashboard
+    </a>
+</div>
+
+{% endblock %}

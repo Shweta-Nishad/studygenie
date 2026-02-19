@@ -18,6 +18,8 @@ body {
     color: white;
     min-height: 100vh;
     font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Container */
@@ -663,14 +665,19 @@ input[type="file"] {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    
 }
 .sidebar-item h3 {
     font-size: 16px;
+    color: white;
 }
 
 .sidebar-item p {
     font-size: 13px;
     opacity: 0.7;
+    color: white;
+
+    
 }
 
 /* Glow Hover Effect */
@@ -1131,3 +1138,159 @@ input[type="file"] {
     }
 }
 
+/* ===============================
+   STUDY PLAN RESULT PAGE
+=================================*/
+.result-wrapper {
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.result-header h1 {
+    margin: 0;
+    color: #333;
+}
+
+.result-header h3 {
+    margin-top: 10px;
+    color: #777;
+}
+
+.day-card {
+    background: #f7f8fc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+    transition: 0.3s ease;
+    color: #333;
+}
+
+.day-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.day-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #151414;
+}
+
+.day-card ul {
+    padding-left: 20px;
+    color: #333;
+}
+
+.day-card li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* ===============================
+   DASHBOARD STUDY PLAN CARDS
+=================================*/
+
+.dashboard-wrapper {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.dashboard-wrapper h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: white;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.plan-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.plan-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.plan-card p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.plan-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.plan-card a:hover {
+    background: #5563d6;
+}
+
+.plan-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    background: #4e73df;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.quiz-btn {
+    background: #20c997;
+}
+
+.question-box {
+    background: #1e1e2f;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.question-box p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.question-box label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
